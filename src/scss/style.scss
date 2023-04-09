@@ -1,0 +1,22 @@
+// Helpers
+ @import "./Helpers/variable";
+ @import "./Helpers/mixin";
+ 
+// Base
+@import "./Base/reset";
+
+// Components
+@import "./Components/buttons";
+@import "./Components/card";
+@import "./Components/input";
+
+// Layouts
+@import"./Layouts/Homtemplate/navbar";
+@import "./Layouts/Homtemplate/footer";
+
+// Pages
+@import "./Pages/Hometemplate/homepage/homepage";
+@import "./Pages/Hometemplate/listCourse/listCourse";
+@import "./Pages/Hometemplate/Login/login";
+@import "./Pages/Hometemplate/detailCourse/detailCourse";
+@import "./Pages/Hometemplate/infoUser/infoUser";

@@ -1,0 +1,231 @@
+#list_course {
+    .section_content {
+        display: block;
+        flex-wrap: wrap;
+        position: relative;
+
+        .tab {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 8;
+            transition: all 0.5s;
+            transform: translateX(-100%);
+
+            &.active {
+                background-color: #56565647;
+                transform: translateX(0);
+            }
+
+            .tab_content {
+                background-color: $color-light-1;
+                width: 20%;
+                height: 100%;
+                padding: 0 10px;
+                position: relative;
+
+
+                .tab_list {
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+
+                    p {
+                        @include styleText($fs-2, $fw-5, none);
+                        padding: $pd-1 $pd-2;
+                        margin: 15px 0;
+                    }
+
+                    button {
+                        width: 100%;
+                        margin-bottom: 3px;
+
+                        &.BackEnd {
+                            &:after {
+                                background-color: $color-BackEnd;
+                            }
+                        }
+
+                        &.Design {
+                            &:after {
+                                background-color: $color-Design;
+                            }
+                        }
+
+                        &.DiDong {
+                            &:after {
+                                background-color: $color-DiDong;
+                            }
+                        }
+
+                        &.FrontEnd {
+                            &:after {
+                                background-color: $color-FrontEnd;
+                            }
+                        }
+
+                        &.FullStack {
+                            &:after {
+                                background-color: $color-FullStack;
+                            }
+                        }
+
+                        &.TuDuy {
+                            &:after {
+                                background-color: $color-TuDuy;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .content {
+            width: 100%;
+
+            .search {
+                margin: 15px 0;
+
+                input {
+                    margin-left: 10px;
+                    width: 50%;
+                }
+            }
+
+            .course {
+                border-radius: 20px;
+                background-color: $color-light-7;
+                position: relative;
+                padding: 20px 20px;
+
+                .course_content {
+                    height: 90vh;
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    overflow: auto;
+                    z-index: 1;
+
+                    &::-webkit-scrollbar {
+                        width: 5px;
+                        border-radius: 5px;
+                        background-color: transparent;
+                    }
+
+                    &::-webkit-scrollbar-track {
+                        -webkit-border-radius: 5px;
+                        border-radius: 5px;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        -webkit-border-radius: 5px;
+                        border-radius: 5px;
+                        background-color: black;
+                        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+                    }
+                }
+
+                &::before {
+                    content: "";
+                    border-radius: 20px 20px 20px 20px;
+                    position: absolute;
+                    top: 0vh;
+                    left: 0;
+                    width: 100%;
+                    height: 10vh;
+                    @include styleGradient(to bottom, (#dcebff 0% 30%, #dcebff00 100%));
+                    z-index: 2;
+                }
+
+                &::after {
+                    content: "";
+                    border-radius: 20px 20px 20px 20px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 10vh;
+                    @include styleGradient(to top, (#dcebff 0% 30%, #dcebff00 100%));
+                    z-index: 2;
+                }
+            }
+        }
+    }
+}
+
+@include responsive("extra-large") {
+    #list_course {
+        .section_content {
+
+            .tab {
+                .tab_content {
+                    width: 40%;
+                }
+            }
+
+            .content {
+                width: 100%;
+
+
+                .course {
+                    .course_content {
+                        .course_item {
+                            width: calc(88/3)*1%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include responsive("large") {
+    #list_course {
+            .section_content {
+    
+                .tab {
+                    .tab_content {
+                        width: 50%;
+                    }
+                }
+    
+                .content { 
+                    .course {
+                        .course_content {
+                            .course_item {
+                                width: calc(92/2)*1%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+}
+
+@include responsive("small") {
+    #list_course {
+            .section_content {
+    
+                .tab {
+                    .tab_content {
+                        width: 60%;
+                    }
+                }
+    
+                .content {   
+                    .course {
+                        .course_content {
+                            .course_item {
+                                width: calc(98)*1%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+}

@@ -1,0 +1,24 @@
+#list_course.homepage{
+    .section_title {
+     a,h1{
+        color: $color-light-3;
+     }
+    }
+
+    .section_content {
+        display: block;
+        margin-top: 0;
+
+        .tab {
+            display: none;
+        }
+
+        .content {
+
+            .search {
+                display: none;
+            }
+
+        }
+    }
+}

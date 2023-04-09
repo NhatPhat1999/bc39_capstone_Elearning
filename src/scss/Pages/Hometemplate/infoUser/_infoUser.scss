@@ -1,0 +1,698 @@
+#InfoUser {
+    .section_content {
+
+        .section_container {
+            box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.127);
+            border-radius: 30px;
+            padding: 30px;
+            overflow: hidden;
+
+            .info_user {
+                display: flex;
+                align-items: center;
+                border-bottom: 5px solid $color-light-7;
+                padding-bottom: 20px;
+
+                .info_img {
+                    img {
+                        box-shadow: 0 0 4px 1px $color-light-2;
+                        width: 200px;
+                        height: 200px;
+                        border-radius: 50%;
+                        background-color: $color-light-8;
+                    }
+                }
+
+                .info_account {
+                    margin-left: 20px;
+
+                    h1 {
+                        @include styleText($fs-7, $fw-8, $color-dark-1)
+                    }
+
+                    p {
+                        @include styleText($fs-3, $fw-6, $color-dark-2)
+                    }
+                }
+            }
+
+            .info_tab {
+                display: flex;
+                padding: 10px 0;
+
+                button {
+                    border-radius: 5px;
+
+                    span {
+                        color: $color-dark-2;
+                    }
+
+                    &:hover {
+                        span {
+                            color: $color-light-3;
+                        }
+                    }
+
+                    &.active {
+                        span {
+                            color: $color-light-3;
+                        }
+                    }
+
+                    &:after {
+                        background-color: $color-light-7;
+                    }
+                }
+            }
+
+            .info_detail {
+                padding: 10px 0;
+                display: none;
+
+                &.active {
+                    display: block;
+                }
+
+                div.info_content {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+
+                    button {
+                        width: fit-content;
+                        margin: 0 auto;
+                    }
+
+                    form {
+                        width: 60%;
+                        // margin: 0 auto;
+
+                        div {
+
+                            .form_input {
+                                padding: 10px 0;
+
+                                label {
+                                    margin-bottom: 0;
+                                    @include styleText(calc($fs-2 - 0.1rem), $fw-6, $color-dark-2)
+                                }
+
+                                input {
+                                    background-color: $color-light-7;
+                                    width: 100%;
+
+                                    &:disabled {
+                                        background-color: $color-light-8;
+                                    }
+                                }
+                            }
+
+                            button.btn-light-2 {
+                                width: fit-content;
+                                margin: 10px 0 0;
+                                box-shadow: 0 0 4px 1px $color-dark-2;
+                                background-color: $color-light-8;
+                                padding: calc($pd-1 - 0.2rem) calc($pd-2 - 0.2rem);
+                                border-radius: 10px;
+
+                                &:hover {
+                                    span {
+                                        color: $color-light-1;
+                                    }
+                                }
+
+                                span {
+                                    color: $color-dark-2;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .info_course {
+                padding: 10px 0;
+                width: 100%;
+                display: none;
+
+                &.active {
+                    display: flex;
+                }
+
+                .info_RChart {
+                    width: 40%;
+                    height: 600px;
+
+                    canvas {
+                        width: 400px !important;
+                        height: 400px !important;
+                        // margin: 0 auto;
+                    }
+                }
+
+                .list_Rcourse {
+                    width: 60%;
+                    display: block;
+
+                    .Rcourse_container {
+                        padding: 20px 10px;
+                        overflow: hidden;
+
+                        .RCourse_item {
+                            width: 100%;
+                            background-color: $color-light-7;
+                            // box-shadow: 0 0 4px 1px $color-light-7;
+                            padding: 10px;
+                            margin-bottom: 10px;
+                            display: flex;
+                            border-radius: 25px;
+                            transition: all 0.5s;
+
+                            &:hover {
+                                transform: translateY(-5px);
+                                box-shadow: 0 0 4px 4px $color-light-2;
+                            }
+
+                            .RCourse_img {
+                                width: 25%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                img {
+                                    background-color: $color-light-1;
+                                    width: 150px;
+                                    border-radius: 25px;
+                                    height: 150px;
+                                }
+                            }
+
+                            .RCourse_info {
+                                width: 75%;
+                                overflow: hidden;
+                                padding: 10px 5px;
+
+                                a {
+                                    display: block;
+                                    @include styleText($fs-3, $fw-7, $color-dark-1);
+                                    width: 100%;
+                                    text-overflow: ellipsis;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                    transition: all 0.5s;
+
+                                    &:hover {
+                                        @include styleText(calc($fs-3 + 0.1rem), $fw-7, $color-dark-1);
+                                    }
+                                }
+
+                                p.moTa {
+                                    text-overflow: ellipsis;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                    @include styleText($fs-1, $fw-6, $color-dark-2);
+                                    padding: 10px 0 0;
+                                }
+
+                                p.danhGia {
+                                    display: inline-block;
+                                    width: 50%;
+
+                                    i {
+                                        @include styleText($fs-1, $fw-6, $color-light-3)
+                                    }
+                                }
+
+                                div {
+                                    display: inline-block;
+                                    width: 50%;
+                                    text-align: right;
+                                    padding-right: 5px;
+
+                                    button {
+                                        width: fit-content;
+                                        margin: 5px 0;
+                                        box-shadow: 0 0 4px 1px $color-dark-2;
+                                        border-radius: 10px;
+                                        background-color: $color-light-8;
+                                        padding: calc($pd-1 - 0.2rem) calc($pd-2 - 0.2rem);
+
+                                        &:hover {
+                                            span {
+                                                color: $color-light-1;
+                                            }
+                                        }
+
+                                        span {
+                                            color: $color-dark-2;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+}
+
+@include responsive("extra-large") {
+    #InfoUser {
+        .section_content {
+            .section_container {
+                padding: 20px;
+
+                .info_user {
+                    .info_img {
+                        img {
+                            width: 150px;
+                            height: 150px;
+                        }
+                    }
+
+                    .info_account {
+                        h1 {
+                            @include styleText($fs-6, $fw-8, $color-dark-1)
+                        }
+
+                        p {
+                            @include styleText($fs-3, $fw-6, $color-dark-2)
+                        }
+                    }
+
+                }
+
+                .info_course {
+                    &.active {
+                        display: block;
+                    }
+
+                    .info_RChart {
+                        display: block;
+                        width: 100%;
+                        height: 500px;
+
+                        canvas {
+                            margin: 0 auto;
+                            width: 500px !important;
+                            height: 500px !important;
+                        }
+                    }
+
+                    .list_Rcourse {
+                        width: 100%;
+                        display: block;
+
+                        .Rcourse_container {
+
+                            .RCourse_item {
+
+                                .RCourse_img {
+                                    width: 25%;
+
+
+                                    img {
+                                        width: 150px;
+                                        height: 150px;
+                                    }
+                                }
+
+                                .RCourse_info {
+                                    width: 75%;
+                                    padding: 10px 5px;
+
+                                    p.moTa {
+                                        padding: 10px 0 0;
+                                    }
+
+                                    p.danhGia {
+                                        display: inline-block;
+                                        width: 50%;
+                                    }
+
+                                    div {
+                                        display: inline-block;
+                                        width: 50%;
+                                        text-align: right;
+
+                                        button {
+                                            width: fit-content;
+                                            margin: 5px 0;
+                                            padding: calc($pd-1 - 0.2rem) calc($pd-2 - 0.2rem);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@include responsive("large") {
+    #InfoUser {
+        .section_content {
+            .section_container {
+
+                .info_course {
+
+                    .list_Rcourse {
+
+
+                        .Rcourse_container {
+
+                            .RCourse_item {
+
+
+                                .RCourse_img {
+                                    width: 20%;
+
+                                    img {
+                                        width: 100px;
+                                        height: 100px;
+                                    }
+                                }
+
+                                .RCourse_info {
+                                    width: 80%;
+                                    padding: 0;
+
+                                    p.moTa {
+                                        @include styleText($fs-1, $fw-6, $color-dark-2);
+                                        padding: 5px 0 0;
+                                    }
+
+                                    p.danhGia {
+                                        display: inline-block;
+                                        width: 50%;
+
+                                        i {
+                                            @include styleText($fs-1, $fw-6, $color-light-3)
+                                        }
+                                    }
+
+                                    div {
+                                        button {
+                                            padding: calc($pd-1 - 0.2rem) calc($pd-2 - 0.2rem);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include responsive("medium") {
+    #InfoUser {
+        .section_content {
+            .section_container {
+
+                .info_course {
+                    .info_RChart {
+                        display: block;
+                        width: 100%;
+                        height: 400px;
+
+                        canvas {
+                            margin: 0 auto;
+                            width: 400px !important;
+                            height: 400px !important;
+                        }
+                    }
+
+                    .list_Rcourse {
+
+
+                        .Rcourse_container {
+
+                            .RCourse_item {
+
+
+                                .RCourse_img {
+                                    width: 25%;
+
+                                    img {
+                                        width: 90px;
+                                        height: 90px;
+                                    }
+                                }
+
+                                .RCourse_info {
+                                    width: 75%;
+                                    padding: 0;
+
+                                    div {
+                                        display: inline-block;
+                                        width: 50%;
+                                        text-align: right;
+
+                                        button {
+                                            margin: 5px 0;
+                                            padding: calc($pd-1 - 0.5rem) calc($pd-2 - 0.5rem);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@include responsive("small") {
+    #InfoUser {
+        .section_content {
+            .section_container {
+                padding: 20px 10px;
+
+                .info_user {
+                    .info_img {
+                        img {
+                            width: 110px;
+                            height: 110px;
+                        }
+                    }
+
+                    .info_account {
+                        h1 {
+                            @include styleText(calc($fs-5 - 0.15rem), $fw-8, $color-dark-1)
+                        }
+
+                        p {
+                            @include styleText($fs-2, $fw-6, $color-dark-2)
+                        }
+                    }
+                }
+
+                .info_tab {
+                    width: 100%;
+
+                    button {
+                        width: 50%;
+
+                        span {
+                            color: $color-dark-2;
+                        }
+
+                    }
+                }
+
+                .info_detail {
+                    div.info_content {
+                        form {
+                            width: 80%;
+                        }
+                    }
+                }
+
+                .info_course {
+                    .info_RChart {
+                            display: block;
+                            width: 100%;
+                            height: 300px;
+                    
+                            canvas {
+                                margin: 0 auto;
+                                width: 300px !important;
+                                height: 300px !important;
+                            }
+                        }
+
+                    .list_Rcourse {
+
+
+                        .Rcourse_container {
+
+                            .RCourse_item {
+                                flex-direction: column;
+                                align-items: center;
+
+                                .RCourse_img {
+                                    width: 100%;
+
+                                    img {
+                                        width: 100px;
+                                        height: 100px;
+                                    }
+                                }
+
+                                .RCourse_info {
+                                    width: 100%;
+                                    padding: 0;
+
+
+                                    div {
+                                        display: inline-block;
+                                        width: 50%;
+                                        text-align: right;
+
+                                        button {
+                                            padding: calc($pd-1 ) calc($pd-2 - 0.4rem);
+
+                                            &:hover {
+                                                span {
+                                                    color: $color-light-1;
+                                                }
+                                            }
+
+                                            span {
+                                                font-size: calc($fs-1);
+                                                color: $color-dark-2;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@include responsive("extra-small") {
+    #InfoUser {
+        .section_content {
+            .section_container {
+                .info_user {
+                    .info_img {
+                        img {
+                            width: 70px;
+                            height: 70px;
+                        }
+                    }
+
+                    .info_account {
+                        h1 {
+                            @include styleText(calc($fs-3 - 0.15rem), $fw-8, $color-dark-1)
+                        }
+
+                        p {
+                            @include styleText($fs-1, $fw-6, $color-dark-2)
+                        }
+                    }
+                }
+
+                .info_tab {
+                    width: 100%;
+
+                    button {
+                        width: 50%;
+
+                        span {
+                            font-size: $fs-1;
+                            color: $color-dark-2;
+                        }
+
+                    }
+                }
+
+                .info_detail {
+                    div.info_content {
+                        form {
+                            width: 95%;
+                        }
+                    }
+                }
+
+                .info_course {
+                    .info_RChart {
+                            display: block;
+                            width: 100%;
+                            height: 300px;  
+
+                            canvas {
+                                // position: absolute;
+                                margin: 0 auto;
+                                width: 100% !important;
+                                height: 250px !important;
+                            }
+                        }
+
+                    .list_Rcourse {
+                        .Rcourse_container {
+
+                            .RCourse_item {
+
+                                .RCourse_info {
+
+                                    a {
+                                        @include styleText($fs-2, $fw-7, $color-dark-1);
+
+
+                                        &:hover {
+                                            @include styleText(calc($fs-2 + 0.1rem), $fw-7, $color-dark-1);
+                                        }
+                                    }
+
+                                    p.moTa {
+                                        @include styleText($fs-1, $fw-6, $color-dark-2);
+                                    }
+
+                                    p.danhGia {
+                                        display: inline-block;
+                                        width: 50%;
+
+                                        i {
+                                            @include styleText($fs-1, $fw-6, $color-light-3)
+                                        }
+                                    }
+
+                                    div {
+                                        display: inline-block;
+                                        width: 50%;
+                                        text-align: right;
+
+                                        button {
+                                            margin: 5px 0;
+                                            box-shadow: 0 0 4px 1px $color-dark-2;
+                                            border-radius: 5px;
+                                            padding: calc(0) calc($pd-2 - 0.4rem);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

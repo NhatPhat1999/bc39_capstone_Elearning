@@ -1,0 +1,18 @@
+#list_teacher{
+    background-color: $color-light-8;
+    .section_title{
+        a,h1{
+            color: $color-light-5;
+        }
+    }
+    .section_content{
+        width: 100%;
+        .swiper-wrapper {
+                margin-bottom: 40px;
+        
+                .swiper-slide {
+                    padding: 30px;
+                }
+            }
+    }
+}
