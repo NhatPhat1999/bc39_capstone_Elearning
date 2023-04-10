@@ -1,6 +1,6 @@
-import ReactString, { useState } from 'react'
+import  { useState } from 'react'
 import { useDispatch,useSelector } from 'react-redux';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { actUserRegister } from './duck/action';
 import { RootState } from '../../../../store';
 import { State,IUserRegister } from '../../duck/types';

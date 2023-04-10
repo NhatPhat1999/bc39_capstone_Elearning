@@ -30,7 +30,7 @@ export const actUserRegister = (data: object, navigate: any, setClassCover:Funct
             console.log(result);
             dispatch(actUserRegisterSuccess(result.data));
             alert("Đăng kí thành công");
-            setClassCover("cover_register")
+            setClassCover("cover_register");
         })
         .catch((error:any)=>{
             console.log(error);

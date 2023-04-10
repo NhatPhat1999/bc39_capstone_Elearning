@@ -6,7 +6,8 @@ import { RootState } from '../../../store';
 
 export default function DetailCourse() {
   const params: any = useParams();
-  const data = useSelector((state: RootState) => state.detailCourseReducer.data);
+  const {data,loading} = useSelector((state: RootState) => state.detailCourseReducer);
+  
   
   return (
     <section id='detail_course'>
@@ -14,7 +15,7 @@ export default function DetailCourse() {
         <h1>Thông tin khóa học</h1>
       </div>
       <div className='section_content'>
-        <InfoCourse id={params.id} data={data}/>
+        <InfoCourse id={params.id} data={data} loading={loading}/>
         <div className='info_member'>
           <h1>Bạn nên tham gia khóa học ?</h1>
           <div> <ul>

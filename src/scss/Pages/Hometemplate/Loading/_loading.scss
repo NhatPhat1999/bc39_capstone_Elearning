@@ -1,0 +1,56 @@
+    .loading {        
+        display: flex;
+        padding: 100px 0;
+        justify-content: center;
+        .loader {
+
+            width: 200px;
+            height: 200px;
+            background-color: $color-transparent;
+            border: 35px solid $color-light-6;
+            border-radius: 50%;
+            position: relative;
+            transform: rotate(45deg);
+            box-sizing: border-box;
+            position: relative;
+
+            &::before {
+                content: "";
+                width: 200px;
+                height: 200px;
+
+                background-color: $color-transparent;
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                transform: translateX(-35px) translateY(-35px);
+                box-sizing: border-box;
+                border-radius: 50%;
+                border: 30px solid $color-light-2;
+                animation: prixClipFix 2s infinite linear;
+            }
+
+            @keyframes prixClipFix {
+                0% {
+                    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+                }
+
+                25% {
+                    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+                }
+
+                50% {
+                    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+                }
+
+                75% {
+                    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+                }
+
+                100% {
+                    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+                }
+            }
+        }
+
+    }

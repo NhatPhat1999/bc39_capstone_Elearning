@@ -3,6 +3,7 @@ import Banner from './Banner';
 import ListCourse from './ListCourse'
 import ListTeacher from './ListTeacher';
 import Comment from './comment';
+import Loading from '../Loading';
 
 export default function Homepage() {
   return (
@@ -11,6 +12,8 @@ export default function Homepage() {
       <ListCourse />
       <ListTeacher />
       <Comment />
+      {/* <Loading /> */}
+
     </div>
   )
 }

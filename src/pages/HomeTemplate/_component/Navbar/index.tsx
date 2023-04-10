@@ -47,19 +47,19 @@ export default function Navbar() {
       </div>
       <div className='menu'>
         <ul>
+          <li className={pathname === "/" ? "menu_item active" : "menu_item"}>
+            <Link to={`/`}>
+              Trang chủ
+            </Link>
+          </li>
           <li className={pathname === "/danhsachkhoahoc" ? "menu_item active" : "menu_item"}>
             <Link to={`danhsachkhoahoc`}>
-              KHÓA HỌC
+              Khóa học
             </Link>
           </li>
           <li className="menu_item">
             <Link to={`danhsachkhoahoc`}>
-              aasdasd
-            </Link>
-          </li>
-          <li className="menu_item">
-            <Link to={`danhsachkhoahoc`}>
-              aasdasd
+              Blog
             </Link>
           </li>
         </ul>
@@ -67,18 +67,11 @@ export default function Navbar() {
 
       <div className="account" style={localStorage.getItem('userLogin') ? { display: "none" } : {}}>
         <div className='login btn-light-1' style={pathname === "/login" ? { display: "none" } : {}}>
-          <Link to={`login`} state={ { pathname: pathname }}
+          <Link to={`login`} state={{ pathname: pathname }}
           >
             Đăng nhập
           </Link>
         </div>
-        {/* <div className='register' style={pathname === "/dangki" ? { display: "none" } : {}}>
-          <Link to={`dangki`}
-            state={pathname === "/dangnhap" ? { pathname: state.pathname } : { pathname: pathname }}
-          >
-            Register
-          </Link>
-        </div> */}
       </div>
       <div className='account' style={localStorage.getItem("userLogin") ? {} : { display: "none" }}>
         <div className='info btn-light-1'>

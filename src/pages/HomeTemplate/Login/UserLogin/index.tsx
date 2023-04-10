@@ -1,12 +1,10 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actUserLogin } from './duck/action';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { RootState } from '../../../../store';
 import { State, IUserLogin } from '../../duck/types';
-import { actUserInfo } from '../../InfoUser/duck/action';
 
 
 export default function UserLogin() {
@@ -17,6 +15,7 @@ export default function UserLogin() {
   const { pathname, state } = useLocation();
   const dispatch: Function = useDispatch();
   const navigate: Function = useNavigate();
+  
   const data: State<IUserLogin> = useSelector((state: RootState) => state.userLoginReducer);
 
 

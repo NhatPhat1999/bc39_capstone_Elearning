@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper";
+import Loading from '../../Loading';
 
 
 
@@ -17,7 +18,7 @@ interface Teacher {
     tenLoaiNguoiDung: string;
 }
 export default function ListTeacher() {
-    const data = useSelector((state: RootState) => state.listCourseReducer.data);
+    const {data,loading} = useSelector((state: RootState) => state.listCourseReducer);
 
     let ListDetailTeacher = data?.map((item) => item.nguoiTao);
     let listIndex = ListDetailTeacher?.map((item) => {
@@ -41,39 +42,40 @@ export default function ListTeacher() {
                 </h1>
             </div>
             <div className='section_content'>
-                <Swiper id='list_teacher'
-                    slidesPerView={1}
-                    spaceBetween={0}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    autoplay={{
-                        delay: 2500,
-                        disableOnInteraction: true,
-                    }}
-                    rewind={true}
-                    breakpoints={{
-                        640: {
-                            slidesPerView: 2,
-                            spaceBetween: 0,
-                        },
-                        768: {
-                            slidesPerView: 4,
-                            spaceBetween: 0,
-                        },
-                        1024: {
-                            slidesPerView: 5,
-                            spaceBetween: 0,
-                        },
-                    }}
-                    modules={[Pagination]}
-                    className="mySwiper">
-                    {ListTeacher?.map((teacher: any) =>
-                        <SwiperSlide>
-                            <TeacherItem teacher={teacher} />
-                        </SwiperSlide>
-                    )}
-                </Swiper>
+               {loading?<Loading/>:
+                    <Swiper id='list_teacher'
+                        slidesPerView={1}
+                        spaceBetween={0}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: true,
+                        }}
+                        rewind={true}
+                        breakpoints={{
+                            640: {
+                                slidesPerView: 2,
+                                spaceBetween: 0,
+                            },
+                            768: {
+                                slidesPerView: 4,
+                                spaceBetween: 0,
+                            },
+                            1024: {
+                                slidesPerView: 5,
+                                spaceBetween: 0,
+                            },
+                        }}
+                        modules={[Pagination]}
+                        className="mySwiper">
+                        {ListTeacher?.map((teacher: any) =>
+                            <SwiperSlide>
+                                <TeacherItem teacher={teacher} />
+                            </SwiperSlide>
+                        )}
+                    </Swiper>}
             </div>
         </section>
     )

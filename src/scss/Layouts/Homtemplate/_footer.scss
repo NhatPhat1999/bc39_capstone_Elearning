@@ -1,5 +1,282 @@
-#footer{
-    background-color: gray;
-    color: black;
-    padding: 1000px 0;
+#footer {
+    background-color: $color-dark-3;
+    color: $color-light-1;
+
+    .section_content {
+        padding: 0;
+
+        .footer_main {
+            width: 100%;
+            display: flex;
+            padding: 50px 0 30px;
+
+            .contact {
+                width: 70%;
+                display: flex;
+                flex-wrap: wrap;
+
+                h1 {
+                    margin-bottom: 10px;
+                    width: 100%;
+                    @include styleText($fs-5, $fw-7, $color-light-1);
+                }
+
+                .info,
+                .social {
+                    width: 50%;
+
+                    div {
+                        width: fit-content;
+                        padding: $pd-3 0;
+                        display: flex;
+                        align-items: center;
+
+                        i {
+                            @include styleText($fs-3, none, $color-light-6);
+                            margin-right: 10px
+                        }
+
+                        a,
+                        span {
+                            @include styleText($fs-1, $fw-4, $color-light-8);
+                            transition: all 0.5s;
+                            position: relative;
+                            display: block;
+
+                            &::after {
+                                content: "";
+                                background-color: $color-light-1;
+                                width: 0;
+                                height: 2px;
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                z-index: 99;
+                                transition: all 0.5s;
+                            }
+                        }
+
+                        &:hover {
+                            i {
+                                color: $color-light-1;
+                            }
+
+                            a,
+                            span {
+                                &::after {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .consulting {
+                width: 30%;
+
+                h1 {
+                    width: 100%;
+                    @include styleText($fs-5, $fw-7, $color-light-1);
+                    margin-bottom: 10px;
+                }
+
+                input {
+                    width: 80%;
+                    margin: 5px 0;
+                    border-radius: 10px;
+                }
+
+                button {
+                    border-radius: 10px;
+                    padding: calc($pd-1 - 0.2rem) $pd-2;
+                    margin-top: 10px;
+                    @include styleGradient(to right, ($color-light-2 0%, $color-light-5 100%));
+
+                    span {
+                        color: $color-light-1;
+                    }
+                }
+            }
+        }
+
+        .footer_extra {
+            border-top: 2px solid $color-light-8;
+            padding: 10px 0 20px;
+
+            p {
+                font-size: $fs-1;
+                color: $color-light-8;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@include responsive("large") {
+    #footer {
+
+        .section_content {
+
+            .footer_main {
+                .contact {
+                    width: 60%;
+                    display: flex;
+
+                    h1 {
+                        width: 100%;
+                        @include styleText($fs-4, $fw-7, $color-light-1);
+                    }
+
+                    .info,
+                    .social {
+                        width: 50%;
+
+                        div {
+                            width: 85%;
+                            padding: $pd-2 0;
+                            display: flex;
+                            align-items: center;
+
+                            i {
+                                @include styleText($fs-3, none, $color-light-6);
+                                margin-right: 10px
+                            }
+
+                            a,
+                            span {
+                                @include styleText($fs-1, $fw-4, $color-light-8);
+                                transition: all 0.5s;
+                                position: relative;
+                                display: block;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                white-space: nowrap;
+
+                                &::after {
+                                    content: "";
+                                    background-color: $color-light-1;
+                                    width: 0;
+                                    height: 2px;
+                                    position: absolute;
+                                    bottom: 0;
+                                    left: 0;
+                                    z-index: 99;
+                                    transition: all 0.5s;
+                                }
+                            }
+
+                            &:hover {
+                                i {
+                                    color: $color-light-1;
+                                }
+
+                                a,
+                                span {
+                                    &::after {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .consulting {
+                    width: 40%;
+
+                    h1 {
+                        width: 100%;
+                        @include styleText($fs-4, $fw-7, $color-light-1);
+                        margin-bottom: 10px;
+                    }
+
+                    input {
+                        width: 80%;
+                        margin: 5px 0;
+                        border-radius: 10px;
+                    }
+
+                    button {
+                        border-radius: 10px;
+                        padding: calc($pd-1 - 0.2rem) $pd-2;
+                        margin-top: 10px;
+                        @include styleGradient(to right, ($color-light-2 0%, $color-light-5 100%));
+
+                        span {
+                            color: $color-light-1;
+                        }
+                    }
+                }
+            }
+
+            .footer_extra {
+                border-top: 2px solid $color-light-8;
+                padding: 10px 0 20px;
+
+                p {
+                    font-size: $fs-1;
+                    color: $color-light-8;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@include responsive("small") {
+    #footer {
+
+        .section_content {
+
+            .footer_main {
+                display: block;
+
+                .contact {
+                    width: 100%;
+                    padding-bottom: 40px;
+
+                    .info,
+                    .social {
+                        width: 50%;
+
+                        div {
+                            width: 85%;
+                            padding: $pd-2 0;
+                            display: flex;
+                            align-items: center;
+
+                            i {
+                                margin-right: 10px
+                            }
+                        }
+                    }
+                }
+
+                .consulting {
+                    width: 100%;
+
+                    h1 {
+                        width: 100%;
+                        
+                    }
+
+                    input {
+                        width: 90%;
+                    }
+                }
+            }
+
+            .footer_extra {
+                border-top: 2px solid $color-light-8;
+                padding: 10px 0 20px;
+
+                p {
+                    font-size: $fs-1;
+                    color: $color-light-8;
+                    text-align: center;
+                }
+            }
+        }
+    }
 }

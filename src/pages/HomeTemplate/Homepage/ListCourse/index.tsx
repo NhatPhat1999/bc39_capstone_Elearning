@@ -6,8 +6,8 @@ import { CourseItem } from './CourseItem/CourseItem';
 import { actListCategory } from './duck/duckCategory/action';
 import { actCategoryCourse } from './duck/duckCategoryCourse/action';
 import { actListCourse } from './duck/duckListCourse/action';
-import { useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Loading from '../../Loading';
 
 export default function ListCourse() {
   const [selectCategory, setSelectCategory] = useState("");
@@ -17,9 +17,9 @@ export default function ListCourse() {
 
   const { pathname } = useLocation();
 
-  const listCategory = useSelector((state: RootState) => state.listCategoryReducer.data);
+  const listCategory = useSelector((state: RootState) => state.listCategoryReducer);
 
-  let listCourse = useSelector((state: RootState) => selectCategory === "" ? state.listCourseReducer.data : state.categoryCourseReducer.data);
+  let listCourse = useSelector((state: RootState) => selectCategory === "" ? state.listCourseReducer : state.categoryCourseReducer);
 
   const dispatch: Function = useDispatch();
   useEffect(() => {
@@ -34,7 +34,8 @@ export default function ListCourse() {
 
   useEffect(() => {
     pathname === "/" ? setIsHomegage("homepage") : setIsHomegage("")
-  }, [pathname])
+  }, [pathname]);
+
   const handleCategory = (maDanhMuc: string) => {
     selectCategory === maDanhMuc ? setSelectCategory("") : setSelectCategory(maDanhMuc);
   };
@@ -44,7 +45,7 @@ export default function ListCourse() {
     setKeyword(event.target.value);
   }
 
-  const data = keyword === "" ? listCourse : listCourse?.filter(item => {
+  const data = keyword === "" ? listCourse.data : listCourse.data?.filter(item => {
     return item.tenKhoaHoc.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
   });
 
@@ -63,7 +64,7 @@ export default function ListCourse() {
             </button>
             <div className='tab_list'>
               <p>Danh mục:</p>
-              {listCategory?.map((category: ICategory) => {
+              {listCategory.data?.map((category: ICategory) => {
                 return <button
                   onClick={() => { handleCategory(category.maDanhMuc); setActiveCategory("") }}
                   className={selectCategory === category.maDanhMuc ? `btn-light-2 ${category.maDanhMuc} active` : `btn-light-2 ${category.maDanhMuc}`}><span>{category.tenDanhMuc}</span></button>
@@ -79,13 +80,13 @@ export default function ListCourse() {
             <input className='input_1' onChange={handleOnchange} placeholder='tìm kiếm' />
           </div>
           <div className='course'>
-            <div className='course_content'>
-              {
-                data?.map((Course: IDetailCourse) => {
+            {listCourse.loading ? <Loading /> :
+              <div className='course_content'>
+                {data?.map((Course: IDetailCourse) => {
                   return <CourseItem Course={Course} />
                 })
-              }
-            </div>
+                }
+              </div>}
           </div>
         </div>
       </div>
