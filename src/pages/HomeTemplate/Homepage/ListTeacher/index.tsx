@@ -55,18 +55,22 @@ export default function ListTeacher() {
                         }}
                         rewind={true}
                         breakpoints={{
-                            640: {
+                            550: {
                                 slidesPerView: 2,
                                 spaceBetween: 0,
                             },
-                            768: {
+                            850: {
+                                slidesPerView: 3,
+                                spaceBetween: 0,
+                            },
+                            1300: {
                                 slidesPerView: 4,
                                 spaceBetween: 0,
                             },
-                            1024: {
+                            1496:{
                                 slidesPerView: 5,
                                 spaceBetween: 0,
-                            },
+                            }
                         }}
                         modules={[Pagination]}
                         className="mySwiper">
